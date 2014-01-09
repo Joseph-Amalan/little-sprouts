@@ -1,0 +1,44 @@
+@charset "utf-8";
+html { background:#FFF; margin:3px; padding:5px;}
+/*body*/
+body { font: normal 12px Arial, Helvetica, sans-serif; color:#6d6d6d; line-height:1.6em; width:100%;}
+.body h2 { font: normal 30px Arial, Helvetica, sans-serif; color:#6d6d6d; padding:5px 5px 5px 0px; margin:5px 0 10px 0; }
+.body h2 span { color:#35b2ef; }
+.body p { font: normal 12px Arial, Helvetica, sans-serif; color:#6d6d6d; padding:5px; margin:0; line-height:1.8em; }
+.body img { float:left; margin:2px; padding:0; }
+.body img.floated { float:right; margin:5px 10px 5px 0; padding:0; }
+
+ li { float:left; width:100%; }
+
+h1 { margin:0; padding:24px 0 24px 40px; color:#fff; font:normal 40px/1.2em Arial, Helvetica, sans-serif;}
+h1 a, h1 a:hover { color:#fff; text-decoration:none;}
+
+/* messages starts */
+.error { color:#444; width: 378px; background:#f9e5e6; margin:3px 0; border:#e8aaad solid 1px; padding:3px;float: left;}
+.notice  { background:#f9f9e5; color:#828400; border:#e8e3aa solid 1px; padding:3px; float: left;}
+.inf { background:#e5ecf9; color:#0055b5; border:#aac6e8 solid 1px; padding:3px;float: left; }
+.success { background:#e9f9e5; color:#1c8400; border:#b4e8aa solid 1px; padding: 6px;width:378px;margin: 15px auto; float: left;}
+/* messages ends */
+
+/* input, textarea, button*/
+.inputbutton {background-color: #5B74A8; border: 1px solid #29447E; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); color: #FFFFFF; font-size: 12px; padding: 1px 6px;}
+.field {clear: both; margin-bottom: 14px;}
+.field label {color: #666666;display: block;font-size: 12px;font-weight: bold;line-height: 1.4em;margin-bottom: 2px;}
+.field  input { width:480px; border:1px solid #41C8FF; margin:2px 0; padding:5px 2px; height:16px; background:#EAF7FC;}
+.field  select { width:486px; border:1px solid #41C8FF; margin:2px 0; padding:5px 2px; height:30px; background:#EAF7FC;  }
+.field  select option { padding:6px;}
+.field  textarea { width:380px; border:1px solid #41C8FF; margin:2px 0; padding:5px 2px; height:80px; background:#EAF7FC; float:left; }
+.field  input.checkbox  { width:20px; height:20px;border: medium none; margin: 0 8px 0 0; padding: 0; }
+.field input.radiobutton { border: medium none; height: 23px;  margin: 0 50px 0 60px; padding: 0; width: 30px;}
+.smallselect { width:486px;}
+.field input.file {width:480px; border:1px solid #41C8FF; margin:2px 0; padding:5px 2px; height:22px; background:#EAF7FC; float:left; }
+.smallselect  select { width:156px; border:1px solid #41C8FF; margin:5px 6px 4px 0; padding:5px 2px; height:30px; background:#EAF7FC; float:left; }
+.smallselect  .doberror { width:156px; margin:5px 6px 4px 0; padding:0px 0px;float:left;background: #F9E5E6;}
+.smallinput  input { width:200px; border:1px solid #41C8FF; margin:2px 70px 2px 0; padding:5px 2px; height:16px; background:#EAF7FC; float:left;  }
+.box {-moz-border-radius: 5px 5px 5px 5px; background: none repeat scroll 0 0 #92E0FC; border: 1px solid #DDDDDD; padding: 10px;}
+.field input.buttons {background: none repeat scroll 0 0 #F7B02C; border: 1px solid #E46213;height: 30px;margin: 0;padding: 6px 15px; width: auto;font-weight:bold;color: #623F1D; font-weight: bold;text-decoration: none;text-shadow: 0 1px 0 #FEDE9D;	-moz-border-radius: 20px 20px 20px 20px;}
+.field input.buttons:hover {background: none repeat scroll 0 0 #FED584; font-weight:bold;cursor:pointer;}
+.field table {border:1px solid #ccc;}
+.field table thead{background:#ccc;}
+.field table input{width:120px;}
+

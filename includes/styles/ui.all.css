@@ -1,0 +1,42 @@
+@import "ui.base.css";
+@import "ui.theme.css";
+
+.ui-icon {
+	width: 16px;
+	height: 16px;
+	background-image: url(../images/icons/icons-blue.png);
+}
+.ui-icon-carat-2-n-s {
+	background-position: -128px 0;
+}
+a.btn span.ui-icon {
+	margin: 0 5px 0 0;
+	position: absolute;
+	left: .2em;
+	top: 2px;
+	top: 2px;
+}
+.ui-state-default .ui-icon {
+	background-image: url(../images/ui-icons_6da8d5_256x240.png);
+}
+#page-wrapper a.btn {
+	margin: 5px;
+	display: block;
+	float: left;
+}
+a.btn_no_text {
+	padding: 10px;
+}
+a.btn {
+	padding: .4em 1em .4em 20px;
+	position: relative;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .pagination a {
+	border: 1px solid #C5DBEC;
+	background: #DFEFFC url(../images/ui-bg_glass_85_dfeffc_1x400.png) 50% 50% repeat-x;
+	color: #2E6E9E;
+}
+.ui-corner-all, .pagination li a, .pagination li, #tooltip, ul#dashboard-buttons li a, .fixed #sidebar {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}

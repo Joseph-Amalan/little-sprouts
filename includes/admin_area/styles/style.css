@@ -1,0 +1,121 @@
+@import url('reset.css');
+@import url('general.css');
+@import url('ui.css');
+@import url('forms.css');
+@import url('tables.css');
+@import url('messages.css');
+@import url('calender.css');
+
+.error {
+	color: #B50007;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 7px 0 0;
+    padding: 10px 15px 10px 44px;
+    width: 330px;
+}
+.success {
+	color: green;	
+    font-size: 13px;
+    font-weight: bold;
+    margin: 7px 0 0;
+    padding: 10px 15px 10px 44px;
+    width: 330px;
+}
+. ui-icon-delete {
+
+}
+/****** admin User profile view start *****/
+.ad_user_photo {
+	width: 15%;
+	float: left;
+	margin: 0px 10px 20px 0px;
+}
+.ad_user_name {
+	float: left;
+	margin: 0px 10px 20px 0px;
+	width: 80%;
+	font-size: 22px;
+	color: #E17009;
+}
+.view_user_profile {
+	margin-right:0px!important;
+}
+.view_user_profile h1 {
+	width: 100%;
+	float: left;
+	color: black;
+	font-size: 18px;
+	margin:0px 0px 12px 0px;
+}
+.view_user_profile h2 {
+	width: 100%;
+	float: left;
+	color: black;
+	font-size: 14px;
+	margin:8px 0px 12px 10px;
+	color:green;
+}
+.view_content_box {
+	width:100%;
+	float:left;
+	background:#F2F9FE;
+	border: 1px solid #A6C9E2;	
+	font-size:13px;
+	font-weight:bold;
+	padding: 10px 0px 0px 0px;
+	margin:0px 0px 15px 0px;
+}
+.view_content_box  label {
+	width:175px;
+	text-align:right;
+	float:left;
+	margin:0px 15px 0px 0px;
+}
+.view_content_box  span {
+	width:130px;
+	text-align:left;
+	/*float:left;*/
+	margin:0px 0px 9px 0px;
+	padding:2px 0 0;
+}
+.view_content_box  input {
+	text-align:left;	
+	margin:0px 0px 0px 0px;
+	padding: 0px 0px 0px 4px;
+	height: 20px;
+	width: 175px;
+}
+.view_content_box  select {
+	text-align:left;
+	float:left;
+	margin:0px 0px 14px 0px;
+	padding: 0px 0px 0px 4px;
+	height: 20px;
+	width: 182px;
+}
+.radiobtn {
+	margin: -1px 7px 0 0 !important;
+    padding: 0 !important;
+    width: 11px !important;
+	float:left;
+}
+.ipb {
+	width:80px!important;
+	float:left;
+}
+.ipbtn input{
+	float:right;
+	height:28px;
+	padding:5px 7px;
+	margin:0px 0px 30px 0px;
+}
+.botom_border {
+	border-bottom:1px solid #eaeaea;
+	padding:3px 3px 3px 3px;
+}
+.required {
+	color: red;
+	font-size: 20px;
+	padding: 0 0 0 2px!important;
+}

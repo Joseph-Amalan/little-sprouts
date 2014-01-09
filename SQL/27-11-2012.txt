@@ -1,0 +1,491 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 27, 2012 at 01:05 PM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `inspire_credit`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ls_admin`
+--
+
+CREATE TABLE IF NOT EXISTS `ls_admin` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_email` varchar(150) NOT NULL,
+  `admin_password` varchar(100) NOT NULL,
+  `admin_role_id` tinyint(4) NOT NULL,
+  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `login_counter` int(11) DEFAULT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `ls_admin`
+--
+
+INSERT INTO `ls_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_role_id`, `last_login`, `login_counter`) VALUES
+(1, 'poli@knstek.com', 'fcea920f7412b5da7be0cf42b8c93759', 4, '2012-11-27 14:52:42', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_bank_details`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_bank_details` (
+  `bank_id` int(5) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `bank_name` varchar(500) NOT NULL,
+  `bank_account_no` varchar(500) NOT NULL,
+  `bank_routing_no` varchar(500) NOT NULL,
+  `bank_account_type` varchar(500) NOT NULL,
+  `bank_account_status` int(11) NOT NULL DEFAULT '1',
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`bank_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+--
+-- Dumping data for table `cr_bank_details`
+--
+
+INSERT INTO `cr_bank_details` (`bank_id`, `user_id`, `bank_name`, `bank_account_no`, `bank_routing_no`, `bank_account_type`, `bank_account_status`, `update_date`) VALUES
+(1, 1, 'JZovJyheJntyIoBUMeRBGSy4oQvkdqcztycemDz1YkBiDUuR9r6ezSigM+bHK2bXn+Rup4il/+Kduk7M5HmGqA==', '3PTY+vOcw5MQBNBwZCoF+bQimm9/xJTbJhi/RD9Ld7A1K/PuAitnmHsoySjIuiWVR9f9sb7qLeVNAedM/2E6lg==', '8y3hrx25wIsPxoFs908quZts87N68eBj9erA0KKB6wDE3grcgRR9K/fEbw4Cw1VQBn0iJVtZdrq7tjzVXYVZDg==', 'akdJQ6m3HGNuaJJI6lWvWOGWrNbU/43LI5wgPGSXwC8Jqn6AasPsHzZ0JacdMWMeQAdnqKDK6jkrycb0PxR1TQ==', 0, '0000-00-00 00:00:00'),
+(3, 3, 'QXY3qp/SPZyMma47uEQPbWdqF/SZYU1aL7P7JEAL/tqe81PwyICVDo/pMaWUwn1LH+6WakpgFA20WrvqvAHK2w==', 'PKSFMW6kPifuzyOKb564QDGotAw4Q512Y/nABMd19z7fQGkgyELKThGihg0oG5RHQLWsX/eyn4kgKGwI28bGow==', 'lrExmp1WoJSx5fi6hdjB9FzFsQM3BE5y9R/kxK6/UIKnufRe+vId0SICrAqNwfhvltNcIe6IKWuumlFMImH2Qg==', 'UZ8+4SvoYN/U2izJ+/EpiebDDduVpl9N6CRqZPTpCKYV7b7NBAXG4yWBKDrMEDVh5znRjIL6W4Mszm7KQQA0yg==', 1, '0000-00-00 00:00:00'),
+(4, 4, '8tRYqdwAT0NYYGTE8s/5c9NCqHHZcNanxkOw+4/H71WqbCUyIPhwMFPCDo9PoO3LmmbKRvayUqutwWCM2bwHhQ==', '1u8mFQTvwmSD4zpZ4qbzO0cshi2RLlgXgpeV4A5u+W/W0tkRC9VyYjdZRKSGhl5AP94Lbv6QF1+jOctIPltNEw==', 'mmrU4gw+E+SPxu9OstzNZZt3Q0opTrnoHklbJG914+diqJigPMlsfcpzQIr9AW0XeAkvCOQTujzFr1e96zHWdA==', 'PkRjD/PsRcV7CIWiYXOH7c4h4cehzPsZmlwAya7brcCOYJbU13WjsJTJvtd30dHbgEhSrDappspYUqAfL3vMQg==', 1, '0000-00-00 00:00:00'),
+(8, 1, 'vz9cW8Q6wBwtC/TJS08faQO8l9n0yILIoB7M2LuH8LIuMktNboSWQz1N7UX54lMuHQcyzjiWSRFK/jn37Ba2cg==', 'nfwUGUaqfHAT8HVwVWkjI/HJ3mmGic3qllLbT9TwhDyfjURv1/P6gItC7BEViL7g+jvYK6Ppg8PhbfKHqYNm+w==', 'WxmsOah7GCLZNdR3P+EHPb81Blf3qvltbOfLJc65+CdSBi5PJBxr1u+NEpnLpOJ23QZGPWFD4gw0YAZ9dRxJfw==', '+JYkt+mslDZ/2hPdCbrLuW0CDqZKKgRPIdybXKjhTHLm2GMZjcOypjjPJffbZuB2bJPee6273xNR1eFvNexADw==', 0, '0000-00-00 00:00:00'),
+(9, 6, 'jsRJtR/6WVNVR3obf0fQFoOwtCP/+Evud8qBGp7v0lB6dUg/nO+WLSQaNbsIS/4IHoESIHTpqYZtNdaJVB/90Q==', 'DKGilEGLtcbaTJriKIF18RDdnNIx2TcwDB8wsVd5Bfuk+DlyZKVsnFimbHTr/XBOyYmTbZM6ZFzJZ7t5qt1+Vg==', 'at3Z00N88ZlBsZkJshn4LH5qY+FDGgLTg9TAqPFhGQX/M8AZjZN20wEGqhbudKpaxGhtNJwQU8GqxExTQgsLRg==', 'qHrxciTMDcuGdnmQHBJcx8tXC1A0u67W2Ogw/myqDXGeAEh+NWY2uEzoS96gMR93VmQuXQuL9yfpLQvArvQZmw==', 1, '0000-00-00 00:00:00'),
+(10, 7, 'UfeiquK5FH6NVuugXyoN2f+rkMjND1nYCsEVbilJAfElKjQ7cQ6SgtPDsAqEDjeZg1rv1W9b6ek2FJqYcUjAcA==', 'GAa0665dizMcTYaJdDWLtliKsVkpgt7cKYjAp80kjx4SPbe5NqwLwmdzF+mxQjzKsIPgApjYmAHiNLgKdcAkCA==', 'wHWmjFpf4EiMpf/RZ6Do8o/Js0plVUVBKa5KQFFe/avi3ikugXuVNaEGGXw+MRCS9yQV6jAJFz9lZZggQi7Y9A==', 'SEN4jebCFrzcW1l7Omsmj6dolZqBh4oGCTSzOLX6S5i2r5rdzHHo7nsqD+GN/NNb+0JAgjAAF3lGICxGnlIQAw==', 1, '0000-00-00 00:00:00'),
+(11, 8, '7XGrKMJcuHjE0M6Upkl1ZqtdYqrTYh7uAOLytkaJvIvUe/bEKH5owTk4tk6gpcQ5upeN57MRbAGUE+OUZ7oH9A==', 'uK9IQGE+CJT3FpN0LLNuyUarT1NCVL+aAzgHJp4CBH6bb3vjgNXIlwC1+Zn3UfWqhjjrNhxgOD/OCPtZpJ6nuw==', '48xEOF//uZCKO7gzE/3HDEHYndoQJb8lZm58dlRbrVEAtVh3ypY7ZfXHE2fO2SHOk+zzpY4ufi/XB39wudijaQ==', 'bsqiD76hymx9QT3TWiaAMJvmSUJA1yCSKIRRpmuWtgVzaCenuPMcHaCT537GZwYAWFOSGhl0fmFl8Y/FOp8dgA==', 1, '0000-00-00 00:00:00'),
+(13, 8, 'v97yvzWzUGm6cpk//pVSKUWyMemPIb8GvmxGCeY7oXem0PCNZKnGQYSZeGV+Kr+zELK2fhAqRCZ+Ok+GAQ4M/Q==', '+kt/h0XFkTVd507O9S47PVAvDkFuQ1BjMPFLKK3m2RqaUCjf06Yb78zHt/55vWm0GuJF6npwWcctYhbXAuTlbw==', 'lZpsLrO3MeBgPWM/S6iEMbqOS3itRUGeA1evKNRwcp56FYuPzgS8TQcLKEmSZc68FdgR/1rzT+tShnPzs2cJ+Q==', 'kMe5toKJMmzDc9eOAgIsBYXL6JBMJpG6Np10CFrZawIrGe1ImJhVWp6N2Lv9qZUUzxyAtYoo8RAel9u2iemoag==', 0, '0000-00-00 00:00:00'),
+(14, 1, 'BdOG7oWDmU+KdE50RaKrxX0h54Owywm3P6jcaMHjvJyOxmz9pMUqAMvJmGHRPrh17gLoZ8Xq8SffPDp+TAb6ew==', '3M1OYnBhVQZJ9r4vmYiQRCQrAIZruRX+zjqds+PY8KwXUNUCKqOLm58M3pBUpO5MD/+m1Yo/G4nGF8VP81pyBQ==', 'E6d4troecp5oV4/LS03VpCoVeWqGh4Mmvay+32auhptpdjSVgTiD+1bJ7X2mw+V57I/5gWMhnXos61nk9kvxBA==', 'qmEA6WW87xXmmsBHXvN65JLfUS0ANFAuDP0/6khkems5vOD+Ji22AvXBY8vCPnGMvbp5Mebj66mbUjyF4jtnmA==', 1, '0000-00-00 00:00:00'),
+(15, 10, 'd2ua/75v7zxKq/XCarnSmwNQ3Ka25TmOAyXU+KHZK4wXSwXhrzdyl5Z4TMTZgojdkrE7cIAwcQL7bYifYZmRIQ==', 'xVdBbrAPmz6fwGYY4wHGBWGME+S41nRhaorUHypyr8dMQoHK7NOwBrxatLgv4ku8pX7BD+zuM0FvRgeDtKKjyw==', '8qXJPYIQJqHVNLXPPaua0J8pK4SaJ5CUr060ppRqEmF88w+ZQtnqgmaM9ZDfgzACc4rk5s1sgMfylmcwkd4mYQ==', 'AFEwbDNyk2TqCeXmd7NO+7wlI4Jc2Iwm1XR0jd7DV1zLIrtQoLzdxY9DXgg01qu2MwO7NM5umMKcjmER8eYsyQ==', 1, '0000-00-00 00:00:00'),
+(16, 11, 'hvKc0nZ9qRqXWnJpeWdeBj+YAhHLpMd23nbWGG0X7OFoAKZSw2CG7eVuNw/w9cFmMJaszxs5C+pA1L+99h0lkQ==', 'uZ05T+776ksSbhcNuM4n3wISsd7T8xj26liMDTxOxglR3YQoTZfzoI21csDJdy1aK5VJKRUfLcE2/J42luO1+g==', 'zai3K0baDNtv4J4S2JXRF6btPgu7okvX1ZwhYuzlgJJvoIDONUvq/xLPJ3z3iKWiQROA+I7kibnbND2xuWcJNA==', 'wRIVaX4YDsyqswN317tcsConrJiDsFwYoT6YFnzcGXsBxu9soIF5lI6QXSmGY6ZOt35eo8aEMAl9KYsDF8v2Bg==', 1, '0000-00-00 00:00:00'),
+(17, 12, 'ihgei64uIU4PHb+tYGJ9keSQEbmbAAOwaDuf+1ztvyIxglmKyUqMrqhsM6zJVfX4TnbzrSU/k0zdg5EKR8gVBQ==', 'HT1CS5V4epIKSws1LjN+HEfGhwlSWqyEMno8E/vPED0T6Ok2w9lPSD2dGkSpLvA0aKwwtYXG7pAmyBsxJmhmRg==', 'D0PH6tuiMrVlWbidXeXeiQnbWjlplLU3XJg5CvqRwTlWS2w1QMFbpS/L3UwQOAN4Zh5vmgl0nuhvhe74DL3FhQ==', 'Yymsa4KrS7kfRsXk7Hef1CzRkEnfrR3L55WW4lgy0hUUIzmrfH21sYVMNR0Ih2JZOT0zQsqVXFu9WtFLkouj1A==', 1, '0000-00-00 00:00:00'),
+(18, 13, '4XTjuWwGrA5CLjtcUKZWyiBF9FnuodvS3oWY+0LaRpxIj9e4lJNJAvjWlfwwmDkZLsXq14HSyLYymrd+VjAjyA==', '6icO12n9qtDyKc2CdmY9FHmJ7oY8KKqk3xH6MLcq/PZSRi6uxyEChh1USv0zh6RWxDiIthQEE2YfkjWHE9QQAg==', 'U7uZ1cXVCXICBcCI+gWDPTGsSZTokdhVP329R4xZEi/fyPUMo7k3Sf9tApE7SXdSPeyuI56b9YyTYBcUp/WbpA==', 'Gy+Es4KNyPN0wRJu34YpR0uwBIL12GjnAMjgPcFqikl5KBJP+iCqt9miVEBfpaEJHKY/nNiuRtkd2tpRCCwREA==', 1, '0000-00-00 00:00:00'),
+(19, 14, '63mQCdMBXgLvc052kWaEbJuRVsSvbewpTaExQSv5obFvZ2RX5QU5iu4xhFCkJCWYjvFMjEEZ185Jd+py85eWFQ==', '8P0vUfy6g139H7alQsbvLrFmhtvodaBTbJ4oQO2qnUTybok0EMKnaWNXfqrdfSRJqo+IVD/bmLMuH9Bnpbv6/A==', '1uKw9wbThhfrLP0z1Ic8UaabllIC3jTeafoAno+7eTZdqHWUh+7okze+pF1Oy2JxhVoCLvsdJarnCzn8FH/x4Q==', 'nCcP/fBMajO5mSUiRahn1Hwvhij8p6fJRre4XRErNYpFvI6F7Xoj56akRzDDCp6lcoSdNQ/CQ5UrH1T7otRogw==', 1, '0000-00-00 00:00:00'),
+(20, 15, 'QyONpiI3gIawikx4uTeWBKR2NIuRPM82gLPRLKclNpQEQ9/3D1FiJ4aNxuq+qMUbBolli+Nl05x7UmC+7MMqjQ==', 'ZLToGKk8oE1aw+9SR2V+s9ZXIM0mkH/NOTsE10SirRLmBFEsrjn1ASTZTSa+4Q4uCwxXgbL+zdsrvMduafwEiw==', 'ZqUk6w6goHPjW3ONtfFGweiX7HCcRQ7E0yQY4cJ/BPGzWotedI+V1O7JIk88eaw0oGTbylx/LmnfrTkxjz4MMw==', 'SPU/HlRlf/lNVNcnAt7tMNk4mHPyWn4aTW0MTR+7PS8dqd0jr4Uin+mZrshpXn2vTnHgqUpND18IPUjH3HTM1Q==', 1, '0000-00-00 00:00:00'),
+(21, 16, 'D6mj0pCPIqC2jbOZ0Dx6w8NWzQAwTtT7mM96V6+lO73TF830nYSBjVk35lc1VseCdqEmwin587iKBcWY7hCr5Q==', 'DQV7MDKg/pO7EVPf+fWdHtECNDDirkC+rqSqbumt7uiFEhXqY8jGg5suXBT+9P1cMZdPT14MGQNc5N9D1hw1DA==', '6sIy77QQuuWh9tKGAw6h2b8Pfb50b4vgpNm55AIWgnNQ9wKM56ibvYtd4Qu32HPoW8SpicqkN5UGUJy8yuVbhg==', 'qN/KDhXhVZhnOjKN7YeF9I18pK3lkLdjem6pu/zf9l0yJiH+zioQks5iD77wHGZd1qJL5tJXQHa3N2F/13tpfQ==', 1, '0000-00-00 00:00:00'),
+(22, 17, 'HyoN0tR2+YK3SvD+eCN3L12XRdRm/OB5c9yVoZniPtSoe0KvCEIYGl1RVwRf/9m/LNnflKZ4cejsnRJnmSZW4w==', '6mmq6nNYSp7pkLXe/41wk/fkMXzU7YEkdTKpEO9ch8gm8xFfmQkmrpsSx+6QkEg8L24Pj35AlRVt5TTXhiVtNA==', 'FIen4nEZ+5p8ttme5dfJ1/ISfwSjv4Kw2GgeYKa2MJwdZrd84Otflxy34ESkQ7V2in90U46ZViOLF5Q+Ypka7w==', 'oIQDutC7DHZvvF8+LACC+k4gK2zRceIbm37zkL3wOU/YsIyGRXjn8nHJArLiRl4dNL7s4q/tsntmi/aK/KYzMQ==', 1, '0000-00-00 00:00:00'),
+(23, 18, 'u2kSEB7l36xETyrXnOI6PCvzhVqzmlF50iCq4V/wK9hNGFewKVHibbM4EyweQlFcp2qqGzN4OPbFv0+q7RroTQ==', '3yj4Wnco2dmR1/mpnW6dcqBDO7Ncbhu3bzhJwrAMXx5ww3iFT1AZVj2cE+/2Z6GOWLyiU6funzE/jKeBE4QrzA==', 'Zcg/hC9NNOc+Pidb/dlgiHVzUexkIUbUbC9IhGAH8UPKVWCb9KrBEVLJL6F/6TSJls/YI7Ru3v7dD/HaAas8Ig==', 'SUfmjUlR79VKh7btviWCfqqDyQbNtdDSyQemJnLj5EkI1z0F9bBJA6ZPv2twgVsZFEkGN3cSBSEmVG/XLu7GuQ==', 1, '0000-00-00 00:00:00'),
+(24, 19, '2p2dA05iGNg3TvNo5P5VujsllK7aPdXvRO0GIi4BovDN2qdN4PhTGiS4PDmRhuQ1qplJFTypdBbT/3vFsN5BLg==', 'gEHdaxc73FTkG/u3NX9hnfAaYuW0Zig6AgqeQpHSPqMz1LVJyOja0OGaYaKq5rRUzyf/gm2Dsy41ZiIYuildGA==', 'BUb8McJ0gC5ySOJmaF9N34ZvE3xu7l3loIcVwNIDurXQ4HGLTuaF+6bC26O8VQhy3rnnMZpzmnlBBpGbDC0MVQ==', 'bKv8WEwMA2ng1ap1eaAYg/sjo3MH13DvHmNun/SUFSiAeQSVbPIdVuDb35IKGUxgnI86P02gM8HB0qDp9EYKrw==', 1, '0000-00-00 00:00:00'),
+(25, 20, 'KuPLLb3jjQXUWj9oweUHXGc4PMRmygVIPkVOj6h1kT4oxG8MQECVEQxLKTlesild62c5qlai3gned4kvuWhwIQ==', 'F/ASvE+k2CjKkE/e2k2b52SVFCIH2+E6RMrt1dIttJnIbE8G2l+USWHRlrJRLizkAUMChAfK/LpZlskcMK2bmw==', '5Vw6q8HFBKugJD+11BYP0kJSzOGJTJ2OKq9ufNtGuFMStrJZSQPbZ8qutsfPIrqaQFG4WRGk4g2SJJUczdYD+Q==', 'kylC+hJGEI5WGQ7srj9jHf9uZQDqHDlA8PTNg8W/nG8cQlON2hy6XnsUSRA4GAZJceY5GXdYfSiZHfhvhAy3SQ==', 1, '0000-00-00 00:00:00'),
+(26, 21, 'oxCI4QoZ11unCkZOyH77xFMpTpznhWSBBTkpGGMRGAkq7nz5j6oXWUqcrbcum88+eTcyVBFfRFdyTcCChSNxGQ==', 'qZYnKDTS+rW1t659e95oh2n+frMgjResIzUgFyXCFJwSGE/1m2Mcc+WTQdRarzzb0GhEyoIY/GR8Epj6r9o+8w==', 'jnqozz/r/nCjxPULDJ+zqV8yjik79qs2IZP4dsfT8I/M5AEmdvi/13RdEe5ruE6e9TVI0dYeY62Gyiyu3sbF8A==', 'VL8H1ihk4otxMB36fsDfLDXHfgA0vx8h/0+wNUhDrOI+dQdsN+vegxS1ptRUGXWmCKye0o1k14ZQBD2i7xbejQ==', 1, '2012-11-22 17:44:31'),
+(27, 22, 'cu3ZBB2sJC+Hw4p3X6+Qw+sF7dMqHScx/4KLZX3a8/PIYctzJ7mhR0Aursr+7Y3CuBTqXFS0kRi+6gaTOfWDPw==', 'xNO+hcS1PTRCsZe+7kBRDg77IeKiN5DFin/nPdt8A89Fhnfr2FmcL/sNyaGxUOual0FqCvmxl3pAPhCErSjS9A==', 'eJkD5MufthZdfwPm3bNyOpHRt9J5MVk5dVyk9Jr+dYtW8/Sd6Ox17ZK5wcF9E2DO3q0UqIX7cDS/BXLC0ko19A==', 'ij6oIzFpj9rXLNDuKwTyRXSHq6KvC4KNvxrBjLlfRiclM9FGc54UAoD7oBeZDA7JvQJxs3py0UPiwxUDYnoGIg==', 1, '2012-11-22 18:07:23'),
+(28, 23, '8e1H5tg4x9uIztsODwtqRxRliSf3ER8Y+HzZgI4t8cQpGq4xJCsoK1lwtpppHF1IKumA+8Jj1E8mT73+Lk+91Q==', '0XSx3zzSFMgvPc2vuw6/XIS7AnHrfH1VMLvbcckAWCniYLWF4xFjbXZ7fE2/ykb/VWgd0lrADh1T8jfRUkYRmg==', 'kVr7OIDNQhS3DJ6wRnH10dRyWxm/R7rySFm8weUzne6WYFxpxS0aOqaB3oyM+JaMNUKLX/MrfA/nxGrt3SyNtQ==', 'MKEk8KMoUMEeOlAQszMKpgOJliJzctjvP1h+cuHGwxIeg05v9Qk0otB+UzyzbWV78GVNfiyp0NTD8kIB2vbTaw==', 1, '2012-11-26 12:55:41'),
+(29, 24, 'og9kpYEyG7GoIed9JzWuzqXnhUeAbFRP+S7FT4a4FqvJ6EzrvUAQnCb/pEhpGgC01/CCPViHvP2kZzRGrlVuOQ==', 'wtYN3SQNqd6Q0BleE3lEI1V+Ps+0FvHMca0HfwHLvE833hPCRpHBciH1/FWITrdDN+Kea5nh+ffxFWxIajOueg==', 'wf2YdqhIF2tY3iqe3xu52OR12LjHIW+pyYwpD109QlQ82VENHGWl1cS3Kn0Ufo5MuYnU6L1MCkmerKyuDP6hrA==', 'oYQBbwziZFj/TRw/ix4P7FXLUgC7jM3lAMsqAJkQp7nV4n7nMVGvlWrhBJxR6OAt8jJrjMxR//sIs0StRtC93g==', 1, '2012-11-26 14:06:26'),
+(30, 25, '6xy79fXJKi1aXPAtCJDSH4Y6xwAT8Jad0oDJuRXQfh0R9vmhoHox89UNGqrRWMs6bwmuLJqUfILvw79iAgTXaQ==', 'PTftO7qpsZdSwIt89TdBECblylYoYewWGnM0FlIHvR8AJbzkpJT2zHLEjiBD1kAoRIoXHQpGRtF3LgInC9KxKw==', '7TOAYd5pmOGrA4apQb8P4idxLIydsKNww0b/Ve8fXADnlpSHdU6JSNk56omCI5LHJN3LwhO/IknTJYZCTzUZ8A==', '/Q9zZ2QI3gpkJ+C37iY/lIjc76Jy4LqqzPopcuwXWsIPQmXVyz7VqiqxXvl0ENSksH94hJES9xIRzkjkFyX4Xw==', 1, '2012-11-26 15:12:20'),
+(31, 26, '8ZBOlXEY113yzh715u1qBVLKMA71fbhZcU8OLZqszNIRyBeD/EtrLFUZxsk8c58HwVIjjV8ZrfncDK754CAEyA==', 'Nu9Uf+n88ipf9g1nBxnt2+a6Bwi+8aM3LQfNsApoHrd02UjeCXrHHkxoM9WxBDamdQ/bJyWcjro+c517TqtCIQ==', '2i+8ScLAbdgr/ly4iCTQkduKPuLmRe71Sp/rEdsD0X2MNErYxBzC1TV/xq7r5VSn9sho14LXVaozo7J5Kb7eqA==', '306D8vpkR2ZY5grqaRASJi861ZxveZmTxxdqVAx/5CN3hMbSv5nujRNBGfB0/PWoZcz3HmDp3j2wyxpPrTECNA==', 1, '2012-11-26 15:15:00'),
+(32, 27, 'o8kwvwKymedkycDfOEfsT4SFk7gHl/pkY8ovmGyGzpzpqKvjjXTiMDGTF8Y0/l/lspUNrfFxN109mVvaCLQQ8Q==', '6Ck2qXuWtLXR8K9RWHNvJRh0arLPC+VBH4LuGdxBIIJd1XG2pU8ldzIFLmlUT8z23WYPsnDxmJULBeTHudPQVA==', 'jWmec1RaLmOd+P2i2n9S2w1EoIz4Xy//PBkNfK3d00cPTGZ6XkOz1r5PSOs4e8n7xM5xPXm90vt9zE8shS1xFQ==', 'kYllHI39CfDK4K3UumuVcWLzN0aBk9uduZGMvd5Y5u3Z4TLjZosvs6Sx8PwSwmZ5UZh6R6sJKK1+5Ssu2EU6vA==', 1, '2012-11-26 15:24:18'),
+(33, 28, '6TtojbTn5olGFEeKzb6R9xD6+RCQn4fhq7kFbvhv0b6WDmCdA4Kxm7jQgIt/nrDWjvrQlxirhw0C4+19GhmSUg==', 'YFXQID/lQmGktlhmwMQVl1gjsjXqrTRI2mtn2buFpu7y2rfm79ZRqns80wlsiX2wjMjjec3b4KZtNwHlyVv+pA==', 'N0+ZlCnD/xhjN8ghEqn6Fv4tyjmlm0CRafwnJd172/0foAWZvHdX4qo4pEjpfjNzDM44G4U5yiw3+hP0cLBJZQ==', 'bSnB6HSBHLCCmpm9xW8/dwQXQxvAaa24V25IUV9QcO0RWu+h0DbRzLyppSyGwYheFj0DOc9ZTuP8+bUXeumElw==', 1, '2012-11-26 17:54:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_city`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_city` (
+  `city_id` bigint(10) NOT NULL AUTO_INCREMENT,
+  `city_name` varchar(100) DEFAULT NULL,
+  `state_id` tinyint(4) DEFAULT NULL,
+  `city_code` varchar(25) NOT NULL,
+  PRIMARY KEY (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `cr_city`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_csr`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_csr` (
+  `csr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `csr_user_id` int(11) NOT NULL,
+  `csr_first_name` varchar(100) NOT NULL,
+  `csr_Middle_name` varchar(100) DEFAULT NULL,
+  `csr_last_name` varchar(100) DEFAULT NULL,
+  `csr_phone_no` varchar(50) NOT NULL,
+  `csr_alternative_phone_no` varchar(50) NOT NULL,
+  `csr_address_line_one` varchar(200) NOT NULL,
+  `csr_address_line_two` varchar(200) NOT NULL,
+  `csr_city` varchar(100) NOT NULL,
+  `csr_state_id` tinyint(4) NOT NULL,
+  `csr_zipcode` varchar(50) NOT NULL,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`csr_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `cr_csr`
+--
+
+INSERT INTO `cr_csr` (`csr_id`, `csr_user_id`, `csr_first_name`, `csr_Middle_name`, `csr_last_name`, `csr_phone_no`, `csr_alternative_phone_no`, `csr_address_line_one`, `csr_address_line_two`, `csr_city`, `csr_state_id`, `csr_zipcode`, `update_date`) VALUES
+(1, 9, 'Selvem', NULL, NULL, '333-444-6666', '333-222-2222', 'www', '1234', 'Kolkatas', 6, '12', '2012-11-26 12:35:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_landlords`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_landlords` (
+  `landlord_id` int(11) NOT NULL AUTO_INCREMENT,
+  `landlord_user_id` int(11) NOT NULL,
+  `landlord_first_name` varchar(100) DEFAULT NULL,
+  `landlord_middle_name` varchar(100) DEFAULT NULL,
+  `landlord_last_name` varchar(100) DEFAULT NULL,
+  `landlord_suffix` varchar(10) DEFAULT NULL,
+  `landlord_preferred_name` varchar(100) DEFAULT NULL,
+  `landlord_personal_phone_no` varchar(50) NOT NULL,
+  `landlord_ssn` varchar(50) NOT NULL,
+  `landlord_organization` varchar(300) NOT NULL,
+  `landlord_off_phone_no` varchar(50) NOT NULL,
+  `landlord_off_address_line_one` varchar(200) NOT NULL,
+  `landlord_off_address_line_two` varchar(200) NOT NULL,
+  `landlord_off_city` varchar(100) NOT NULL,
+  `landlord_off_state_id` int(2) NOT NULL,
+  `landlord_off_zipcode` varchar(50) NOT NULL,
+  `landlord_lease_start_date` date DEFAULT NULL,
+  `landlord_lease_end_date` date DEFAULT NULL,
+  `landlord_monthly_lease_amount` double DEFAULT NULL,
+  `landlord_rent_due_date` date DEFAULT NULL,
+  `contact_one_first_name` varchar(100) NOT NULL,
+  `contact_one_last_name` varchar(100) NOT NULL,
+  `contact_one_suffix` varchar(10) DEFAULT NULL,
+  `contact_one_email` varchar(100) NOT NULL,
+  `contact_one_designation` varchar(100) NOT NULL,
+  `contact_two_first_name` varchar(100) DEFAULT NULL,
+  `contact_two_last_name` varchar(100) DEFAULT NULL,
+  `contact_two_suffix` varchar(10) DEFAULT NULL,
+  `contact_two_email` varchar(100) DEFAULT NULL,
+  `contact_two_designation` varchar(100) DEFAULT NULL,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`landlord_id`),
+  UNIQUE KEY `landlord_user_id` (`landlord_user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `cr_landlords`
+--
+
+INSERT INTO `cr_landlords` (`landlord_id`, `landlord_user_id`, `landlord_first_name`, `landlord_middle_name`, `landlord_last_name`, `landlord_suffix`, `landlord_preferred_name`, `landlord_personal_phone_no`, `landlord_ssn`, `landlord_organization`, `landlord_off_phone_no`, `landlord_off_address_line_one`, `landlord_off_address_line_two`, `landlord_off_city`, `landlord_off_state_id`, `landlord_off_zipcode`, `landlord_lease_start_date`, `landlord_lease_end_date`, `landlord_monthly_lease_amount`, `landlord_rent_due_date`, `contact_one_first_name`, `contact_one_last_name`, `contact_one_suffix`, `contact_one_email`, `contact_one_designation`, `contact_two_first_name`, `contact_two_last_name`, `contact_two_suffix`, `contact_two_email`, `contact_two_designation`, `update_date`) VALUES
+(3, 3, 'Rajs', 'm', 'das', 'mr', 'Raj', '', '', 'a', '111-111-1111', 'b', 'c', 'd', 2, '1', NULL, NULL, NULL, NULL, '', '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00'),
+(4, 8, 'asa', 'asa', 'asa', 'sas', 'asas', '', '', 'asas', '222-222-2222', 'as', 'as', 'as', 2, '1', NULL, NULL, NULL, NULL, '', '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00'),
+(5, 17, 'asa', 'asas', 'asa', 'asas', 'asasas', '', '', 'asas', '222-222-2222', '123 D', 'Cr park', 'DLH', 2, '12121', NULL, NULL, NULL, NULL, '', '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00'),
+(6, 19, 'Wqwq', 'Dasd', 'Qwqw', 'dsds', 'adad', '', '', 'asa', '333-333-3333', 'asa', 'sas', 'as', 6, '1212', NULL, NULL, NULL, NULL, '', '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, '2012-11-26 12:34:09'),
+(7, 24, 'Asa', 'sada', 'Fsfs', 'sdas', 'dasdasd', '', '', 'asa', '333-333-3333', 'sas', 'ass', 'S', 4, '1212', NULL, NULL, NULL, NULL, '', '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, '2012-11-26 14:06:26'),
+(8, 26, 'Raj', 'sada', 'G', 'sdas', 'Poli', '', '', 'asa, LLLc', '333-333-3333', '3brown rd', 'cr', 'dei', 6, '1212', NULL, NULL, NULL, NULL, '', '', NULL, '', '', NULL, NULL, NULL, NULL, NULL, '2012-11-27 11:11:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_landlord_renter_association`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_landlord_renter_association` (
+  `association_id` int(11) NOT NULL AUTO_INCREMENT,
+  `renter_user_id` int(11) NOT NULL,
+  `landload_user_id` int(11) DEFAULT NULL,
+  `landlord_first_name` varchar(100) NOT NULL,
+  `landlord_last_name` varchar(100) NOT NULL,
+  `landlord_email` varchar(150) DEFAULT NULL,
+  `landlord_phone_no` varchar(50) NOT NULL,
+  `landlord_organization` varchar(300) NOT NULL,
+  `landlord_off_address_line_one` varchar(200) NOT NULL,
+  `landlord_off_address_line_two` varchar(200) NOT NULL,
+  `landlord_off_city` varchar(200) NOT NULL,
+  `landlord_off_state_id` int(2) NOT NULL,
+  `landlord_off_zipcode` varchar(50) NOT NULL,
+  `renter_address_line_one` varchar(200) DEFAULT NULL,
+  `renter_address_line_two` varchar(200) DEFAULT NULL,
+  `renter_city` varchar(100) DEFAULT NULL,
+  `renter_state_id` int(5) DEFAULT NULL,
+  `renter_zip_code` varchar(50) DEFAULT NULL,
+  `lease_start_date` date NOT NULL,
+  `lease_end_date` date DEFAULT NULL,
+  `total_lease_amount` double DEFAULT NULL,
+  `monthly_lease_amount` double DEFAULT NULL,
+  `rent_due_date` int(11) NOT NULL,
+  `invitations_status` tinyint(11) DEFAULT '0',
+  `association_status` tinyint(4) NOT NULL DEFAULT '1',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `to_invitations_viewed` tinyint(4) DEFAULT '0',
+  `to_invitations_deleted` tinyint(4) DEFAULT '0',
+  `from_invitations_deleted` tinyint(4) DEFAULT '0',
+  PRIMARY KEY (`association_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `cr_landlord_renter_association`
+--
+
+INSERT INTO `cr_landlord_renter_association` (`association_id`, `renter_user_id`, `landload_user_id`, `landlord_first_name`, `landlord_last_name`, `landlord_email`, `landlord_phone_no`, `landlord_organization`, `landlord_off_address_line_one`, `landlord_off_address_line_two`, `landlord_off_city`, `landlord_off_state_id`, `landlord_off_zipcode`, `renter_address_line_one`, `renter_address_line_two`, `renter_city`, `renter_state_id`, `renter_zip_code`, `lease_start_date`, `lease_end_date`, `total_lease_amount`, `monthly_lease_amount`, `rent_due_date`, `invitations_status`, `association_status`, `created`, `to_invitations_viewed`, `to_invitations_deleted`, `from_invitations_deleted`) VALUES
+(4, 1, 3, 'Raj', 'das', 'roypoli@gmail.com', '222-222-2222', 'C C LLC', 'as', 'domlur', 'bagalore', 3, '1212', 'sd', 'sd', 'bangalore', 3, '1', '2012-11-05', '2012-11-07', NULL, 1212, 14, 2, -1, '2012-11-23 15:52:26', 0, 0, 0),
+(5, 4, 3, 'selvem', 'jose', 'roypoli@gmail.com', '222-222-2222', 'cs lllc', 'qw', 'qw', 'qw', 2, '1212', 'as', 'as', 'as', 3, '1212', '2012-11-07', '2012-11-14', NULL, 1212, 17, 2, 1, '2012-11-23 15:54:53', 0, 0, 0),
+(6, 5, 3, 'Raj', 'sds', 'roypoli@gmail.com', '222-222-2222', 'sas', 'asa', 'qw', 'qw', 3, '1212', 'as', 'as', 'as', 2, '1212', '2012-11-07', '2012-11-07', NULL, 1212, 9, 2, 1, '2012-11-19 13:05:59', 0, 0, 0),
+(7, 6, 8, 'qwqw', 'qwq', 'roypoli@gmail.com', '222-222-2222', 'asas', 'as', 'as', 'as', 4, '212', 'sd', 'd', 'd', 3, '1212', '2012-11-14', '2012-11-07', NULL, 2121, 14, 2, -1, '2012-11-23 16:50:00', 1, 0, 0),
+(8, 7, 8, 'asa', 'asa', 'roypoli@gmail.com', '222-222-2222', 'asas', 'as', 'as', 'as', 2, '212', 'sa', 'as', 'as', 3, '1212', '2012-11-27', '2012-11-20', NULL, 12, 9, 2, -1, '2012-11-23 16:52:31', 0, 0, 0),
+(9, 10, NULL, 'asa', 'asa', 'sadasd@gmail.com', '222-222-2222', 'asas', 'sasa', 'asas', 'asas', 1, '12121', 'as', 'asa', 'as', 2, '121212', '2012-11-05', '2012-11-15', NULL, 1212, 5, 1, 1, '2012-11-21 14:29:41', 0, 0, 0),
+(10, 11, NULL, 'asa', 'asdas', 'roypoli@gmail.com', '222-222-2222', 'WB , LLC', '123 D', 'Cr park', 'DLH', 1, '231', '1234 W', 'Brwown rd', 'MZ', 2, '12341', '2012-11-12', '2012-11-14', NULL, 1212, 4, 1, 1, '2012-11-21 17:55:04', 0, 0, 0),
+(11, 12, NULL, 'sas', 'asa', 'roypoli@gmail.com', '222-222-2222', 'qwqw, LLC', '123 R', 'Cr park', 'DLH', 3, '1212', '124 W', 'Brown', 'MZ', 4, '1212', '2012-11-19', '2012-11-22', NULL, 1212, 4, 1, 1, '2012-11-21 18:02:43', 0, 0, 0),
+(12, 13, NULL, 'asa', 'asdas', 'roypoli@gmail.com', '222-222-2222', 'WB , LLC', '123 D', 'Cr park', 'DLH', 3, '1212', '1234 W', 'Brwown rd', 'MZ', 4, '121212', '2012-11-06', '2012-11-15', NULL, 1212, 7, 1, 1, '2012-11-21 18:21:42', 0, 0, 0),
+(13, 14, NULL, 'asa', 'asdas', 'roypoli@gmail.com', '222-222-2222', 'WB , LLC', '123 D', 'Cr park', 'DLH', 2, '12121', '1234 W', 'Brwown rd', 'MZ', 3, '12341', '2012-11-20', '2012-11-29', NULL, 1212, 5, 1, 1, '2012-11-21 18:28:46', 0, 0, 0),
+(14, 15, NULL, 'asa', 'asa', 'roypoli@gmail.com', '222-222-2222', 'asas', 'sasa', 'as', 'DLH', 3, '12121', 'fsdf', 'fdsf', 'sdfsdf', 1, '121212', '2012-11-12', '2012-11-21', NULL, 1212, 4, 1, 1, '2012-11-21 18:35:30', 0, 0, 0),
+(15, 16, 8, 'sa', 'asa', 'roypoli@gmail.com', '', '', '', '', '', 0, '', '', '', '', 0, '', '0000-00-00', '0000-00-00', NULL, 0, 0, 2, -1, '2012-11-26 11:46:56', 0, 0, 0),
+(16, 18, 19, 'wqwq', 'qwqw', '1roypoli@gmail.com', '222-222-2222', 'asa', 'asa', 'sas', 'as', 1, '121212', 'as', 'sas', 'asa', 3, '22112', '2012-11-06', '2012-11-23', NULL, 1212, 10, 2, -1, '2012-11-23 16:51:46', 0, 0, 0),
+(17, 20, 8, 'bob', 'hh', 'roypoli@gmail.com', '222-222-2222', 'roy', 'wewe', 'wewe', 'as', 2, '121212', 'dsd', 'sds', 'dsd', 1, '1212', '2012-11-14', '2012-11-23', NULL, 1212, 4, 2, -1, '2012-11-23 15:57:17', 0, 0, 0),
+(18, 21, NULL, 'Bob', 'hh', 'roypoli@gmail.com', '222-222-2222', 'roy LLC', '#123L', 'vb landlord', 'donlur', 6, '12341', '123', 'Brenter', 'itpl', 1, '123', '2012-11-12', '2012-11-14', NULL, 1214, 3, 1, 1, '2012-11-22 17:44:31', 0, 0, 0),
+(19, 22, 8, 'asa', 'lastname', 'roypoli@gmail.com', '777-222-2222', 'asas', '123 D', 'Cr park', 'asSa', 1, '121', '1234 W', 'ASs', 'MZ', 3, '1212', '2012-11-11', '2012-11-08', NULL, 1212, 2, 2, 1, '2012-11-27 17:42:50', 0, 0, 0),
+(20, 23, 24, 'asa', 'fsfs', 'tejaswi340@gmail.com', '333-333-3333', 'asa', 'sas', 'ass', 'S', 4, '1212', 'www', '1234', 'Kolkatas', 1, '12', '2012-11-13', '2012-11-22', NULL, 1212, 4, 2, 1, '2012-11-26 14:06:26', 0, 0, 0),
+(21, 25, 26, 'Roy', 'g', 'roypoli@gmail.com', '333-333-3333', 'asa, LLLc', '3brown rd', 'cr', 'dei', 2, '1212', 'www', 'dfs', 'dsdfsf', 1, '12121', '2012-11-21', '2012-11-29', NULL, 1212, 6, 2, -1, '2012-11-26 15:21:13', 0, 0, 0),
+(22, 27, 26, 'AA', 'fsfs', 'roypoli@gmail.com', '333-333-3333', 'asa, LLLc', '3brown rd', 'ass', 'dei', 3, '1212', 'saS', 'sdsd', 'sdsd', 2, '12', '2012-11-14', '2012-11-21', NULL, 1212, 4, 2, 1, '2012-11-26 15:35:23', 0, 0, 0),
+(23, 28, NULL, 'Raj', 'Das', 'roypoli@gmail.com', '222-222-2222', 'LLC, PWD', 'sas', '187', 'sas', 1, '1212', 'asa', 'sas', 'asa', 2, '21212', '2012-11-14', '2012-11-21', NULL, 122, 4, 1, 1, '2012-11-26 17:54:44', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_payment_details`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_payment_details` (
+  `pmt_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `pmt_amount` int(11) NOT NULL,
+  `pmt_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `pmt_late_fees` int(11) DEFAULT NULL,
+  PRIMARY KEY (`pmt_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `cr_payment_details`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_private_messaging_system`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_private_messaging_system` (
+  `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `subject` varchar(225) NOT NULL,
+  `message` longtext NOT NULL,
+  `from_user` int(10) unsigned NOT NULL,
+  `to_user` int(10) unsigned NOT NULL,
+  `conv_id` varchar(100) DEFAULT NULL,
+  `from_viewed` tinyint(1) NOT NULL DEFAULT '0',
+  `to_viewed` tinyint(1) NOT NULL DEFAULT '0',
+  `from_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `to_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `from_star` tinyint(1) NOT NULL DEFAULT '0',
+  `to_star` tinyint(1) NOT NULL DEFAULT '0',
+  `from_vdate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `to_vdate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `from_ddate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `to_ddate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `attachment` varchar(120) DEFAULT NULL,
+  PRIMARY KEY (`message_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `cr_private_messaging_system`
+--
+
+INSERT INTO `cr_private_messaging_system` (`message_id`, `subject`, `message`, `from_user`, `to_user`, `conv_id`, `from_viewed`, `to_viewed`, `from_deleted`, `to_deleted`, `from_star`, `to_star`, `from_vdate`, `to_vdate`, `from_ddate`, `to_ddate`, `created`, `attachment`) VALUES
+(1, 'asasas', 'aasasas', 9, 8, '9_1353397883', 0, 0, 0, 0, 0, 0, '0000-00-00 00:00:00', '2012-11-23 11:03:05', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2012-11-20 13:21:23', NULL),
+(2, 'sas', 'asassas', 1, 1, '1_1353398051', 1, 1, 0, 0, 0, 0, '2012-11-21 15:54:48', '2012-11-21 15:54:48', '2012-11-21 16:22:45', '2012-11-21 16:22:45', '2012-11-20 13:24:11', NULL),
+(3, 'Re: I''d like to add you to credit rocket', 'Your request has been accepted.', 8, 6, '8_1353493261', 0, 0, 0, 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2012-11-21 15:51:01', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_property_details`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_property_details` (
+  `property_id` int(11) NOT NULL AUTO_INCREMENT,
+  `landlord_user_id` int(11) NOT NULL,
+  `property_address_line_one` varchar(200) NOT NULL,
+  `property_address_line_two` varchar(200) NOT NULL,
+  `property_city` varchar(100) NOT NULL,
+  `property_state_id` int(5) NOT NULL,
+  `property_zip_code` varchar(50) NOT NULL,
+  PRIMARY KEY (`property_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `cr_property_details`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_renters`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_renters` (
+  `renter_id` int(11) NOT NULL AUTO_INCREMENT,
+  `renter_user_id` int(11) NOT NULL,
+  `renter_first_name` varchar(100) NOT NULL,
+  `renter_middle_name` varchar(100) NOT NULL,
+  `renter_last_name` varchar(100) NOT NULL,
+  `renter_suffix` varchar(10) NOT NULL,
+  `renter_preferred_name` varchar(100) NOT NULL,
+  `renter_mobile_no` varchar(50) NOT NULL,
+  `renter_home_ph_no` varchar(100) DEFAULT NULL,
+  `renter_work_ph_no` varchar(100) DEFAULT NULL,
+  `renter_ssn` varchar(50) NOT NULL,
+  `renter_dob` date DEFAULT NULL,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`renter_id`),
+  UNIQUE KEY `renter_user_id` (`renter_user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `cr_renters`
+--
+
+INSERT INTO `cr_renters` (`renter_id`, `renter_user_id`, `renter_first_name`, `renter_middle_name`, `renter_last_name`, `renter_suffix`, `renter_preferred_name`, `renter_mobile_no`, `renter_home_ph_no`, `renter_work_ph_no`, `renter_ssn`, `renter_dob`, `update_date`) VALUES
+(4, 1, 'poli', 'miss', 'roy', 'sss', 'Poli', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-13', '0000-00-00 00:00:00'),
+(5, 4, 'pappu', 'm', 'rr', 'rr', 'pappu', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-13', '0000-00-00 00:00:00'),
+(6, 5, 'pappu', 'm', 'rr', 'rr', 'pappu', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-06', '0000-00-00 00:00:00'),
+(7, 6, 'hhjg', 'ghjg', 'jhgh', 'hjghj', 'hfhjf', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-05', '0000-00-00 00:00:00'),
+(8, 7, 'hhjg', 'ghjg', 'jhgh', 'hjghj', 'hfhjf', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-13', '0000-00-00 00:00:00'),
+(9, 10, 'sas', 'asa', 'sas', 'asasa', 'as', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-20', '0000-00-00 00:00:00'),
+(10, 11, 'Mini', 'sd', 'sds', 'sdsd', 'sdsw', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-14', '0000-00-00 00:00:00'),
+(11, 12, 'Mini', 'dsad', 'sds', 'asas', 'Mini', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-12', '0000-00-00 00:00:00'),
+(12, 13, 'Mini', 'asas', 'asas', 'asas', 'Mini', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-14', '0000-00-00 00:00:00'),
+(13, 14, 'Mini', 'asas', 'asas', 'asas', 'as', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-20', '0000-00-00 00:00:00'),
+(14, 15, 'Mini', 'asas', 'asas', 'asas', 'asas', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-26', '0000-00-00 00:00:00'),
+(15, 16, '', '', '', '', 'asas', '', '222-222-2222', '222-222-2222', '222-22-2222', '0000-00-00', '2012-11-26 11:14:56'),
+(16, 18, 'adas', 'dasd', 'dasd', 'dasd', 'ada', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-13', '0000-00-00 00:00:00'),
+(17, 20, 'fsd', 'fsdf', 'dfsdf', 'sdfs', 'fsdf', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-15', '0000-00-00 00:00:00'),
+(18, 21, 'Priya', 'asa', 'dfsdf', 'AS', 'priya', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-06', '2012-11-22 17:44:31'),
+(19, 22, 'a', 'aA', 'asas', 'asas', 'aA', '333-222-2222', '444-222-2222', '555-222-2222', '666-22-2222', '2012-11-19', '2012-11-26 11:46:09'),
+(20, 23, 'sadad', 'asd', 'sad', 'asdsad', 'sdsd', '222-222-2222', '222-222-2222', '111-222-2222', '222-22-2222', '2012-11-19', '2012-11-26 13:48:04'),
+(21, 25, 'poli', 'pp', 'Roy', 'asdsad', 'Poli', '111-222-2222', '333-222-2222', '444-222-2222', '555-22-2222', '2012-11-27', '2012-11-26 15:12:20'),
+(22, 27, 'adasd', 'asdasd', 'asdasd', 'asdasd', 'sdasd', '111-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-20', '2012-11-26 15:24:18'),
+(23, 28, 'Poli', 'sasa', 'sasas', 'asas', 'Poli', '222-222-2222', '222-222-2222', '222-222-2222', '222-22-2222', '2012-11-07', '2012-11-26 17:54:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_roles` (
+  `role_id` int(2) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`role_id`),
+  UNIQUE KEY `role_name` (`role_name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `cr_roles`
+--
+
+INSERT INTO `cr_roles` (`role_id`, `role_name`) VALUES
+(1, 'Renter'),
+(2, 'Landlord'),
+(3, 'CSR'),
+(4, 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_states`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_states` (
+  `state_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `state_name` varchar(100) NOT NULL,
+  `state_code` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`state_id`),
+  UNIQUE KEY `state_name` (`state_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `cr_states`
+--
+
+INSERT INTO `cr_states` (`state_id`, `state_name`, `state_code`) VALUES
+(1, 'New York', NULL),
+(2, 'Wyoming', NULL),
+(3, 'Wisconsin', NULL),
+(4, 'West Virginia', NULL),
+(5, 'Washington', NULL),
+(6, 'California', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cr_users`
+--
+
+CREATE TABLE IF NOT EXISTS `cr_users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_email` varchar(150) NOT NULL,
+  `user_password` varchar(100) NOT NULL,
+  `user_registration_status` int(1) NOT NULL DEFAULT '0',
+  `user_account_status` int(11) NOT NULL DEFAULT '1',
+  `user_val_key` varchar(100) NOT NULL,
+  `user_role_id` int(5) NOT NULL,
+  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `login_counter` int(11) DEFAULT NULL,
+  `register_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `user_ip_address` varchar(100) NOT NULL,
+  `user_ip_address_status` int(11) NOT NULL DEFAULT '1',
+  `user_email_back_up` varchar(150) DEFAULT NULL,
+  `update_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+
+--
+-- Dumping data for table `cr_users`
+--
+
+INSERT INTO `cr_users` (`user_id`, `user_email`, `user_password`, `user_registration_status`, `user_account_status`, `user_val_key`, `user_role_id`, `last_login`, `login_counter`, `register_date`, `user_ip_address`, `user_ip_address_status`, `user_email_back_up`, `update_date`) VALUES
+(1, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, 'c32560af18c274b5999e8ee2a920aa6e', 1, '2012-11-26 14:10:05', NULL, '2012-11-15 12:38:59', '127.0.0.1', 1, 'poli@knstek.com', '2012-11-23 13:07:03'),
+(3, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, 'ff1c84ccd1593ca49d3ec9d496982a76', 2, '2012-11-23 17:23:28', NULL, '2012-11-15 12:52:58', '127.0.0.1', 1, 'roypoli@gmail.com', '0000-00-00 00:00:00'),
+(5, 'fgf@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, 'ae214bf90c9e8eb67e6356bc0deee0d8', 1, '2012-11-19 12:51:27', NULL, '2012-11-15 13:05:55', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(6, 'asas@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, '80f31ba0a8e7f59a1f0b2b88d28d060e', 1, '2012-11-16 15:55:21', NULL, '2012-11-16 15:55:21', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(7, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, '88a01396f6c8b6209fb28e7e476eb1fc', 1, '2012-11-23 15:32:32', NULL, '2012-11-16 16:19:30', '127.0.0.1', 1, 'assas@gmail.com', '0000-00-00 00:00:00'),
+(8, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, '492d60cdd09f84997525b06ffff1cd2b', 2, '2012-11-26 14:11:09', NULL, '2012-11-16 16:21:18', '127.0.0.1', 1, 'roypoli@gmail.com', '2012-11-23 18:18:18'),
+(9, 'selvem.jose@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 2, 1, 'c3bd95f97354314ef1a7829701b43a8d', 3, '2012-11-27 17:43:19', NULL, '2012-11-19 10:47:24', '127.0.0.1', 1, '', '2012-11-27 17:43:19'),
+(10, 'hfghjg@Gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '843fa1402086e1625fcc141c94f6cbd8', 1, '2012-11-21 14:29:41', NULL, '2012-11-21 14:29:41', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(11, 'renter@Gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, 'f776a58deaa4b251902f988bc491ebb1', 1, '2012-11-21 17:55:04', NULL, '2012-11-21 17:55:04', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(12, 'renter1@Gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, '55fa2cdeda494908329a01d01ed54ca4', 1, '2012-11-21 18:02:43', NULL, '2012-11-21 18:02:43', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(13, '1hfghjsg@Gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '2b730a828649e59773ad849ce3a204af', 1, '2012-11-21 18:21:42', NULL, '2012-11-21 18:21:42', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(14, '2hfghjg@Gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, '16e2faec632601e370c2de4971d8e468', 1, '2012-11-21 18:28:46', NULL, '2012-11-21 18:28:46', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(15, '3hfghjg@Gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, 'd29f6f942fe69b92d7e2d7c99d29d2bc', 1, '2012-11-21 18:35:30', NULL, '2012-11-21 18:35:30', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(16, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, '45ae921df5aeeb15f8b4f2f16db14f29', 1, '2012-11-26 11:46:56', NULL, '2012-11-21 18:39:16', '127.0.0.1', 1, '4hfghjg@Gmail.com', '2012-11-26 11:46:56'),
+(17, 'gkjg@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, '4f128d06d769f6c9c7e040716644d2ad', 2, '2012-11-21 19:00:16', NULL, '2012-11-21 19:00:16', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(18, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, 'cd709046bbec9cc3e2542d0106f7a69b', 1, '2012-11-23 15:43:41', NULL, '2012-11-22 10:44:43', '127.0.0.1', 1, 'sss@gmail.com', '2012-11-23 15:43:41'),
+(19, '1roypoli@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, '6a7d03cefc3304866960decfbbbcaa88', 2, '2012-11-27 16:27:27', NULL, '2012-11-22 12:20:48', '127.0.0.1', 1, NULL, '2012-11-27 16:27:27'),
+(20, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, '1b3b2b227f1a3ac4aee259944b305a45', 1, '2012-11-23 15:57:17', NULL, '2012-11-22 13:01:58', '127.0.0.1', 1, 'ss1s2@gmail.com', '2012-11-23 15:57:17'),
+(21, '1asas@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, '745d32b27a51f48e054ea9c098141731', 1, '2012-11-22 17:44:31', NULL, '2012-11-22 17:44:31', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00'),
+(22, 'teja@knstek.com', 'fcea920f7412b5da7be0cf42b8c93759', 1, 2, '219dfc3a01b8fb7f6550e25e41109f18', 1, '2012-11-27 17:36:20', NULL, '2012-11-22 18:07:23', '127.0.0.1', 0, NULL, '2012-11-27 17:36:20'),
+(23, 'renter12@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, '63b045da417c4ccc417774bba1d711ba', 1, '2012-11-27 17:55:26', NULL, '2012-11-26 12:55:41', '127.0.0.1', 1, NULL, '2012-11-27 17:55:26'),
+(24, 'tejaswi340@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 2, 'c952cfdf30eaefb57b1fabf33c9e949c', 2, '2012-11-27 17:55:19', NULL, '2012-11-26 14:06:26', '127.0.0.1', 1, NULL, '2012-11-27 17:55:19'),
+(25, 'NULL', 'fcea920f7412b5da7be0cf42b8c93759', 1, -1, 'aace5f8e7d95fe2e01784b3138dcbfa2', 1, '2012-11-26 15:21:13', NULL, '2012-11-26 15:12:20', '127.0.0.1', 1, 'poli@knstek.com', '0000-00-00 00:00:00'),
+(26, 'roypoli@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, 'b31be6a51fefd667d598a549dab5370b', 2, '2012-11-27 18:04:16', NULL, '2012-11-26 15:15:00', '127.0.0.1', 1, NULL, '2012-11-27 18:04:16'),
+(27, 'poli@knstek.com', 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, '7cd238b34644d5247339dbd8860b1b2c', 1, '2012-11-27 18:04:01', NULL, '2012-11-26 15:24:18', '127.0.0.1', 1, NULL, '2012-11-27 18:04:01'),
+(28, 'poli1@knstek.com', 'fcea920f7412b5da7be0cf42b8c93759', 0, 1, '2a0fafc3574be483dd5b1c15c322a234', 1, '2012-11-26 17:54:44', NULL, '2012-11-26 17:54:44', '127.0.0.1', 1, NULL, '0000-00-00 00:00:00');
